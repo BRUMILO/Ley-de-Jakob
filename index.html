@@ -165,13 +165,81 @@
 
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
 
+                                <article class="bg-gray-800 rounded-2xl overflow-hidden border border-gray-700 group hover:border-brand-500/50 transition-all duration-300 hover:shadow-2xl hover:shadow-brand-500/10 relative">
+                    <button onclick="toggleHeart(this)" class="absolute top-3 right-3 z-20 bg-gray-900/50 backdrop-blur p-2 rounded-full hover:bg-white hover:text-red-500 transition text-gray-300">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg>
+                    </button>
+                    
+                    <div class="relative overflow-hidden aspect-[4/3]">
+                        <img src="images/gtavi.png" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-500">
+                        <div class="absolute bottom-0 left-0 right-0 p-2 bg-gradient-to-t from-gray-900 to-transparent"></div>
+                    </div>
+
+                    <div class="p-4">
+                        <div class="flex justify-between items-start mb-2">
+                            <div>
+                                <h3 class="font-bold text-lg leading-tight group-hover:text-brand-400 transition">GTA VI</h3>
+                                <p class="text-xs text-gray-500 mt-1">Rockstar Games</p>
+                            </div>
+                            <span class="bg-gray-700 text-xs px-2 py-1 rounded text-gray-300 font-mono">Action</span>
+                        </div>
+                        
+                        <div class="flex items-center gap-1 mb-4">
+                            <svg class="w-4 h-4 text-yellow-500 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                            <span class="text-xs font-bold text-white">5</span>
+                            <span class="text-xs text-gray-500">(5M)</span>
+                        </div>
+
+                        <div class="flex items-center justify-between mt-2 pt-4 border-t border-gray-700">
+                            <span class="text-xl font-bold text-white">$399.99</span>
+                            <button onclick="addToCart('GTA VI')" class="bg-white text-gray-900 hover:bg-brand-500 hover:text-white px-4 py-2 rounded-lg text-sm font-bold transition flex items-center gap-2">
+                                <span>Agregar</span>
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path></svg>
+                            </button>
+                        </div>
+                    </div>
+                </article>
+
+                 <article class="bg-gray-800 rounded-2xl overflow-hidden border border-gray-700 group hover:border-red-500/50 transition-all duration-300 hover:shadow-2xl hover:shadow-red-500/10 relative">
+                    <button onclick="toggleHeart(this)" class="absolute top-3 right-3 z-20 bg-gray-900/50 backdrop-blur p-2 rounded-full hover:bg-white hover:text-red-500 transition text-gray-300">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg>
+                    </button>
+
+                    <div class="relative overflow-hidden aspect-[4/3]">
+                        <img src="images/gtav.png" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-500">
+                    </div>
+
+                    <div class="p-4">
+                        <div class="flex justify-between items-start mb-2">
+                            <div>
+                                <h3 class="font-bold text-lg leading-tight group-hover:text-red-500 transition">GTA V</h3>
+                                <p class="text-xs text-gray-500 mt-1">Rockstar Games</p>
+                            </div>
+                            <span class="bg-gray-700 text-xs px-2 py-1 rounded text-gray-300 font-mono">Action</span>
+                        </div>
+                        
+                        <div class="flex items-center gap-1 mb-4">
+                            <svg class="w-4 h-4 text-yellow-500 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                            <span class="text-xs font-bold text-white">4.8</span>
+                        </div>
+
+                        <div class="flex items-center justify-between mt-2 pt-4 border-t border-gray-700">
+                            <span class="text-xl font-bold text-white">$39.99</span>
+                            <button onclick="addToCart('GTA V')" class="bg-white text-gray-900 hover:bg-brand-500 hover:text-white px-4 py-2 rounded-lg text-sm font-bold transition flex items-center gap-2">
+                                <span>Agregar</span>
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path></svg>
+                            </button>
+                        </div>
+                    </div>
+                </article>   
+
                 <article class="bg-gray-800 rounded-2xl overflow-hidden border border-gray-700 group hover:border-brand-500/50 transition-all duration-300 hover:shadow-2xl hover:shadow-brand-500/10 relative">
                     <button onclick="toggleHeart(this)" class="absolute top-3 right-3 z-20 bg-gray-900/50 backdrop-blur p-2 rounded-full hover:bg-white hover:text-red-500 transition text-gray-300">
                         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg>
                     </button>
                     
                     <div class="relative overflow-hidden aspect-[4/3]">
-                        <img src="https://image.api.playstation.com/vulcan/ap/rnd/202110/2000/phvVT0qZfcRms5qDAk0SI3CM.png" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-500">
+                        <img src="images/EldenRing.png" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-500">
                         <div class="absolute bottom-0 left-0 right-0 p-2 bg-gradient-to-t from-gray-900 to-transparent"></div>
                     </div>
 
@@ -208,7 +276,7 @@
                     </button>
 
                     <div class="relative overflow-hidden aspect-[4/3]">
-                        <img src="https://image.api.playstation.com/vulcan/ap/rnd/202306/2311/d4b460e6579c09939e144a17951d13f56ea50d032840b522.png" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-500">
+                        <img src="images/fc24.png" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-500">
                     </div>
 
                     <div class="p-4">
@@ -244,7 +312,7 @@
                     </button>
 
                     <div class="relative overflow-hidden aspect-[4/3]">
-                        <img src="https://image.api.playstation.com/vulcan/ap/rnd/202309/0719/201a3404700912525266812535314102616053033350433.jpg" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-500">
+                        <img src="images/spiderman2.png" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-500">
                     </div>
 
                     <div class="p-4">
@@ -270,11 +338,9 @@
                         </div>
                     </div>
                 </article>
-
             </div>
         </section>
     </main>
-
     <script src="scripts.js"></script>
 </body>
 </html>
