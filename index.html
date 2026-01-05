@@ -201,6 +201,7 @@
                 </article>
 
                  <article class="bg-gray-800 rounded-2xl overflow-hidden border border-gray-700 group hover:border-red-500/50 transition-all duration-300 hover:shadow-2xl hover:shadow-red-500/10 relative">
+                    <span class="absolute top-3 left-3 z-20 bg-green-500 text-white text-[10px] font-bold px-2 py-0.5 rounded shadow-lg animate-pulse">OFERTA</span>
                     <button onclick="toggleHeart(this)" class="absolute top-3 right-3 z-20 bg-gray-900/50 backdrop-blur p-2 rounded-full hover:bg-white hover:text-red-500 transition text-gray-300">
                         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg>
                     </button>
@@ -224,8 +225,11 @@
                         </div>
 
                         <div class="flex items-center justify-between mt-2 pt-4 border-t border-gray-700">
-                            <span class="text-xl font-bold text-white">$39.99</span>
-                            <button onclick="addToCart('GTA V')" class="bg-white text-gray-900 hover:bg-brand-500 hover:text-white px-4 py-2 rounded-lg text-sm font-bold transition flex items-center gap-2">
+                            <div>
+                                <span class="text-xs text-gray-400 line-through">$59.99</span>
+                                <span class="text-xl font-bold text-green-400 block">$19.99</span>
+                            </div>
+                            <button onclick="addToCart('GTA V')" class="bg-white text-gray-900 hover:bg-green-500 hover:text-white px-4 py-2 rounded-lg text-sm font-bold transition flex items-center gap-2">
                                 <span>Agregar</span>
                                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path></svg>
                             </button>
@@ -249,7 +253,7 @@
                                 <h3 class="font-bold text-lg leading-tight group-hover:text-brand-400 transition">Elden Ring</h3>
                                 <p class="text-xs text-gray-500 mt-1">FromSoftware Inc.</p>
                             </div>
-                            <span class="bg-gray-700 text-xs px-2 py-1 rounded text-gray-300 font-mono">RPG</span>
+                            <span class="bg-gray-700 text-xs px-2 py-1 rounded text-gray-300 font-mono">MMO RPG NO LINEAL</span>
                         </div>
                         
                         <div class="flex items-center gap-1 mb-4">
@@ -269,7 +273,7 @@
                 </article>
 
                 <article class="bg-gray-800 rounded-2xl overflow-hidden border border-gray-700 group hover:border-green-500/50 transition-all duration-300 hover:shadow-2xl hover:shadow-green-500/10 relative">
-                     <span class="absolute top-3 left-3 z-20 bg-green-500 text-white text-[10px] font-bold px-2 py-0.5 rounded shadow-lg animate-pulse">OFERTA</span>
+                    <span class="absolute top-3 left-3 z-20 bg-green-500 text-white text-[10px] font-bold px-2 py-0.5 rounded shadow-lg animate-pulse">OFERTA</span>
                     
                     <button onclick="toggleHeart(this)" class="absolute top-3 right-3 z-20 bg-gray-900/50 backdrop-blur p-2 rounded-full hover:bg-white hover:text-red-500 transition text-gray-300">
                         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg>
