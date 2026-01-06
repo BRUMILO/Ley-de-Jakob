@@ -1,0 +1,88 @@
+body {
+    background-color: #050505;
+    background-image:
+        linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%),
+        linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+    background-size: 100% 2px, 3px 100%;
+    overflow-x: hidden;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 20px;
+}
+
+::-webkit-scrollbar-track {
+    background: #000;
+    border-left: 2px solid #39ff14;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #ff00ff;
+    border: 2px solid #000;
+    box-shadow: 0 0 10px #ff00ff;
+}
+
+.text-shadow-neon {
+    text-shadow: 2px 2px 0px #ff00ff, -2px -2px 0px #00ffff;
+}
+
+.scanlines::before {
+    content: " ";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+    z-index: 2;
+    background-size: 100% 2px, 3px 100%;
+    pointer-events: none;
+}
+
+.crt-flicker {
+    animation: flicker 0.15s infinite;
+}
+
+@keyframes flicker {
+    0% {
+        opacity: 0.97;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0.98;
+    }
+}
+
+.glitch-hover:hover {
+    animation: shake 0.5s;
+    background-color: #fff;
+    color: #000;
+}
+
+.card-tilted:nth-child(odd) {
+    transform: rotate(-2deg);
+}
+
+.card-tilted:nth-child(even) {
+    transform: rotate(2deg);
+}
+
+.card-tilted:hover {
+    transform: scale(1.05) rotate(0deg) !important;
+    z-index: 50;
+}
+
+.retro-border {
+    box-shadow:
+        -4px 0 0 0 white,
+        4px 0 0 0 white,
+        0 -4px 0 0 white,
+        0 4px 0 0 white;
+    margin: 4px;
+}

@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ARCADE_CHAOS_MODE // INSERT COIN</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'arcade': ['"Press Start 2P"', 'cursive'],
+                    },
+                    colors: {
+                        'neon-green': '#39ff14',
+                        'neon-pink': '#ff00ff',
+                        'neon-blue': '#00ffff',
+                        'retro-black': '#111',
+                    },
+                    animation: {
+                        'glitch': 'glitch 1s linear infinite',
+                        'pulse-fast': 'pulse 0.5s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'float': 'float 3s ease-in-out infinite',
+                        'shake': 'shake 0.5s cubic-bezier(.36,.07,.19,.97) both',
+                        'spin-slow': 'spin 12s linear infinite',
+                    },
+                    keyframes: {
+                        glitch: {
+                            '2%, 64%': { transform: 'translate(2px,0) skew(0deg)' },
+                            '4%, 60%': { transform: 'translate(-2px,0) skew(0deg)' },
+                            '62%': { transform: 'translate(0,0) skew(5deg)' },
+                        },
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        },
+                        shake: {
+                            '10%, 90%': { transform: 'translate3d(-1px, 0, 0)' },
+                            '20%, 80%': { transform: 'translate3d(2px, 0, 0)' },
+                            '30%, 50%, 70%': { transform: 'translate3d(-4px, 0, 0)' },
+                            '40%, 60%': { transform: 'translate3d(4px, 0, 0)' }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="css/version_B.css">
+</head>
+
+<body class="font-arcade text-gray-200 min-h-screen selection:bg-neon-pink selection:text-black crt-flicker relative">
+
+    <!-- Floating particles/stars background -->
+    <div class="fixed inset-0 z-0 opacity-20 pointer-events-none">
+        <div class="absolute top-10 left-20 text-neon-green animate-pulse text-4xl">*</div>
+        <div class="absolute bottom-40 right-10 text-neon-pink animate-bounce text-2xl">+</div>
+        <div class="absolute top-1/2 left-1/4 text-neon-blue animate-spin-slow text-6xl">X</div>
+        <div class="absolute bottom-10 left-10 text-yellow-400 rotate-45 text-xl">■</div>
+    </div>
+
+    <!-- HEADER: Chaotic placement -->
+    <header class="relative z-10 p-8 mb-12 border-b-4 border-dashed border-neon-green">
+        <div class="flex flex-col md:flex-row justify-between items-center gap-8 transform -skew-y-2">
+
+            <a href="index.html">
+                <div class="order-2 md:order-1 relative">
+                    <h1
+                        class="text-5xl md:text-7xl font-bold text-white text-shadow-neon animate-pulse leading-snug text-center md:text-left">
+                        GAME<br>HUB
+                    </h1>
+                    <span
+                        class="absolute -top-6 -right-12 bg-neon-pink text-black px-2 py-1 rotate-12 text-xs border-2 border-white">BETA_VERSION_0.99</span>
+                </div>
+            </a>
+
+            <nav class="order-1 md:order-2 flex flex-wrap gap-4 justify-center md:justify-end">
+                <a href="index.html"
+                    class="retro-border bg-blue-700 hover:bg-blue-600 px-4 py-2 text-xs uppercase tracking-widest transition-transform hover:scale-110">
+                    < Inicio>
+                </a>
+                <button
+                    class="retro-border bg-red-600 hover:bg-red-500 px-4 py-2 text-xs uppercase tracking-widest transition-transform hover:scale-110 animate-bounce">
+                    ! LISTA DESEOS !
+                </button>
+                <div class="relative retro-border bg-yellow-400 text-black px-6 py-2 group cursor-pointer">
+                    <span class="animate-pulse">CART: 0</span>
+                    <div
+                        class="absolute -bottom-2 -right-2 w-full h-full bg-black -z-10 group-hover:translate-x-1 group-hover:translate-y-1 transition-transform">
+                    </div>
+                </div>
+            </nav>
+        </div>
+
+        <div class="mt-8 flex justify-center transform skew-x-12">
+            <div class="bg-gray-900 border-2 border-neon-blue p-2 w-full max-w-2xl flex relative">
+                <span class="absolute -top-3 left-4 bg-black px-2 text-neon-blue text-[10px]">SEARCH_DATABASE</span>
+                <input type="text" placeholder="INSERT QUERY..."
+                    class="w-full bg-transparent border-none outline-none text-neon-green placeholder-gray-600 uppercase">
+                <button class="text-neon-pink hover:text-white px-4">Exec_></button>
+            </div>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-4 relative z-10 pb-20">
+
+        <!-- Sidebar / Filters styled as HUD -->
+        <div
+            class="mb-12 flex flex-wrap justify-center gap-6 border-4 border-double border-white p-6 bg-black/50 backdrop-blur-sm relative">
+            <span
+                class="absolute -top-4 bg-black px-4 text-white border-2 border-white left-1/2 transform -translate-x-1/2">SYSTEM_CONTROLS</span>
+
+            <div class="flex items-center gap-4">
+                <span class="text-xs text-neon-green">FILTER_MODE:</span>
+                <button
+                    class="px-4 py-1 bg-gray-800 border border-neon-green hover:bg-neon-green hover:text-black transition-colors">ALL</button>
+                <button
+                    class="px-4 py-1 bg-gray-800 border border-gray-600 hover:border-neon-pink hover:text-neon-pink transition-colors">RPG</button>
+                <button
+                    class="px-4 py-1 bg-gray-800 border border-gray-600 hover:border-cyan-400 hover:text-cyan-400 transition-colors">SHOOTER</button>
+            </div>
+
+            <div class="flex items-center gap-4 border-l-2 border-gray-600 pl-6">
+                <span class="text-xs text-yellow-400">MAX_CREDITS:</span>
+                <input type="range"
+                    class="w-32 accent-neon-pink h-4 bg-gray-800 rounded-none appearance-none cursor-pointer">
+            </div>
+        </div>
+
+        <!-- CHAOTIC GRID -->
+        <section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 lg:gap-16 px-4 md:px-12">
+
+            <!-- Card 1 -->
+            <article
+                class="card-tilted group relative bg-gray-900 border-4 border-neon-blue p-2 transition-all duration-200">
+                <div
+                    class="absolute -top-4 -left-4 z-20 bg-yellow-400 text-black px-2 py-1 font-bold border-2 border-white shadow-[4px_4px_0px_0px_rgba(255,255,255,1)]">
+                    TOP_HIT</div>
+
+                <div class="relative h-64 overflow-hidden border-2 border-gray-700 bg-black">
+                    <img src="images/gtavi.png"
+                        class="w-full h-full object-cover filter grayscale contrast-125 group-hover:grayscale-0 group-hover:scale-110 transition-all duration-100 ease-steps(5)">
+                    <div class="absolute inset-0 bg-neon-blue/10 pointer-events-none group-hover:bg-transparent"></div>
+                    <!-- Glitch overlay -->
+                    <div
+                        class="absolute inset-0 bg-transparent mix-blend-hard-light opacity-0 group-hover:opacity-50 transition-opacity bg-[url('https://media.giphy.com/media/oEI9uBYSzLpBK/giphy.gif')] bg-cover">
+                    </div>
+                </div>
+
+                <div class="p-4 bg-black border-t-4 border-neon-blue relative">
+                    <h2 class="text-yellow-400 text-xl mb-2 leading-tight group-hover:animate-pulse">GTA VI</h2>
+                    <p class="text-[10px] text-gray-500 mb-4 uppercase tracking-widest">> Rockstar Games</p>
+
+                    <div class="flex justify-between items-end">
+                        <div class="text-2xl text-white font-bold">$399<span class="text-xs align-top">.99</span></div>
+                        <button
+                            class="bg-neon-green text-black px-4 py-2 text-xs font-bold hover:bg-white hover:scale-105 transition-transform shadow-[2px_2px_0px_0px_rgba(255,255,255,1)]">
+                            INSERT COIN
+                        </button>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Card 2 -->
+            <article
+                class="card-tilted group relative bg-gray-900 border-4 border-red-600 p-2 transition-all duration-200 mt-8 md:mt-0">
+                <div
+                    class="absolute -right-6 top-10 z-20 bg-red-600 text-white px-2 py-1 rotate-90 border-2 border-white text-xs">
+                    HOT_DEAL</div>
+
+                <div class="relative h-64 overflow-hidden border-2 border-gray-700 bg-black">
+                    <img src="images/gtav.png"
+                        class="w-full h-full object-cover filter sepia group-hover:sepia-0 transition-all duration-300">
+                    <div class="absolute inset-0 bg-red-900/20 pointer-events-none"></div>
+                </div>
+
+                <div class="p-4 bg-black border-t-4 border-red-600">
+                    <h2 class="text-red-500 text-xl mb-2 group-hover:translate-x-2 transition-transform">GTA V</h2>
+                    <p class="text-[10px] text-gray-500 mb-4 uppercase">> Rockstar Games</p>
+
+                    <div class="flex justify-between items-end">
+                        <div class="flex flex-col">
+                            <span class="text-xs text-red-800 line-through decoration-2 decoration-white">$59.99</span>
+                            <span class="text-2xl text-red-500 font-bold animate-pulse">$19.99</span>
+                        </div>
+                        <button
+                            class="bg-red-600 text-white px-4 py-2 text-xs font-bold hover:bg-red-500 shadow-[2px_2px_0px_0px_rgba(255,255,255,1)]">
+                            INSERT COIN
+                        </button>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Card 3 -->
+            <article
+                class="card-tilted group relative bg-gray-900 border-4 border-green-500 p-2 transition-all duration-200">
+                <div class="relative h-64 overflow-hidden border-2 border-gray-700">
+                    <img src="images/callofduty.jpeg"
+                        class="w-full h-full object-cover filter contrast-150 brightness-75 group-hover:brightness-100 transition-all">
+                </div>
+
+                <div class="p-4 bg-black border-t-4 border-green-500">
+                    <div class="flex justify-between">
+                        <h2 class="text-green-400 text-xl mb-2">COD: MW3</h2>
+                        <span class="text-xs border border-green-500 px-1 py-0.5 h-fit text-green-500">FPS</span>
+                    </div>
+
+                    <div class="mt-4 flex justify-between items-end border-t border-dashed border-gray-700 pt-4">
+                        <div class="text-2xl text-white font-bold">$59.99</div>
+                        <button
+                            class="hover:bg-green-500 hover:text-black border-2 border-green-500 text-green-500 px-2 py-2 text-[10px] font-bold transition-colors">
+                            [ + ] CART
+                        </button>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Card 4 -->
+            <article
+                class="card-tilted group relative bg-gray-900 border-4 border-yellow-500 p-2 transition-all duration-200 mt-12 md:mt-4">
+                <div
+                    class="absolute -top-6 left-1/2 -translate-x-1/2 z-20 bg-black text-yellow-500 border-2 border-yellow-500 px-4 py-1 text-xs whitespace-nowrap shadow-[0_0_10px_rgba(234,179,8,1)]">
+                    MASTERPIECE</div>
+
+                <div class="relative h-64 overflow-hidden border-2 border-gray-700">
+                    <img src="images/EldenRing.png"
+                        class="w-full h-full object-cover group-hover:rotate-1 transition-transform duration-700">
+                </div>
+
+                <div class="p-4 bg-black border-t-4 border-yellow-500 text-center">
+                    <h2 class="text-yellow-500 text-2xl mb-1 uppercase tracking-tighter">Elden Ring</h2>
+                    <div class="flex justify-center gap-1 mb-4 text-yellow-300 text-[10px]">
+                        <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+                    </div>
+
+                    <button
+                        class="w-full bg-yellow-500 text-black font-bold py-3 hover:bg-white hover:text-black transition-colors glitch-hover">
+                        START GAME ($59.99)
+                    </button>
+                </div>
+            </article>
+
+            <!-- Card 5 -->
+            <article
+                class="card-tilted group relative bg-gray-900 border-4 border-purple-500 p-2 transition-all duration-200">
+                <div class="relative h-64 overflow-hidden border-2 border-gray-700">
+                    <img src="images/fc24.png"
+                        class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity">
+                    <!-- Scanline overlay on image -->
+                    <div
+                        class="absolute inset-0 bg-[linear-gradient(rgba(18,16,16,0)_50%,rgba(0,0,0,0.4)_50%),linear-gradient(90deg,rgba(255,0,0,0.06),rgba(0,255,0,0.02),rgba(0,0,255,0.06))] bg-[length:100%_4px,6px_100%] pointer-events-none">
+                    </div>
+                </div>
+
+                <div class="p-4 bg-black border-t-4 border-purple-500">
+                    <h2 class="text-purple-400 text-xl mb-2">EA FC 24</h2>
+                    <div class="flex justify-between items-center text-xs text-gray-400 mb-4">
+                        <span>SPORTS</span>
+                        <span>EA SPORTS</span>
+                    </div>
+
+                    <div class="flex justify-between items-end bg-gray-900 p-2 border border-gray-700">
+                        <div class="text-xl text-white font-bold">$34.99</div>
+                        <div class="w-3 h-3 bg-green-500 rounded-full animate-ping"></div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Card 6 -->
+            <article
+                class="card-tilted group relative bg-gray-900 border-4 border-neon-pink p-2 transition-all duration-200">
+                <div class="relative h-64 overflow-hidden border-2 border-gray-700">
+                    <img src="images/spiderman2.png"
+                        class="w-full h-full object-cover group-hover:scale-125 transition-transform duration-[2s]">
+                </div>
+
+                <div class="p-4 bg-black border-t-4 border-neon-pink">
+                    <h2 class="text-neon-pink text-sm mb-2 uppercase break-all">Spider-Man 2<span
+                            class="animate-blink">_</span></h2>
+
+                    <div
+                        class="border-2 border-neon-pink p-1 mt-4 group-hover:bg-neon-pink group-hover:text-black transition-colors cursor-pointer text-center">
+                        <span class="text-lg font-bold">BUY NOW</span>
+                        <div class="text-xs">$69.99</div>
+                    </div>
+                </div>
+            </article>
+
+        </section>
+
+    </main>
+
+    <footer class="bg-black border-t-8 border-double border-white py-12 text-center relative overflow-hidden">
+        <div class="absolute inset-0 opacity-10 flex justify-center items-center pointer-events-none">
+            <h2 class="text-[10rem] font-bold text-white whitespace-nowrap animate-pulse">GAME OVER</h2>
+        </div>
+
+        <div class="relative z-10">
+            <p class="text-neon-green text-sm mb-4">INSERT COIN TO CONTINUE...</p>
+            <div class="flex justify-center gap-8 text-2xl">
+                <a href="#" class="hover:text-neon-pink hover:-translate-y-2 transition-transform">FB</a>
+                <a href="#" class="hover:text-neon-blue hover:-translate-y-2 transition-transform">TW</a>
+                <a href="#" class="hover:text-yellow-400 hover:-translate-y-2 transition-transform">IG</a>
+            </div>
+            <p class="text-[10px] text-gray-600 mt-8">© 2024 GAMEHUB ARCADE EDITION.</p>
+        </div>
+    </footer>
+
+    <div class="scanlines fixed inset-0 pointer-events-none z-50 opacity-20"></div>
+</body>
+</html>
